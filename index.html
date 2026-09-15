@@ -375,13 +375,46 @@
     /* ---------- FRIENDS ---------- */
 
     .friends {
-        max-width: 900px;
-        margin: auto;
+    max-width: 1100px;
+    margin: auto;
 
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 15px;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+}
+
+.friend {
+    width: 280px;
+    min-width: 280px;
+
+    text-align: center;
+    padding: 25px 15px;
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.07);
+
+    transition: 0.25s;
+}
+
+.friend:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.06);
+}
+
+.friend strong {
+    display: block;
+    margin-bottom: 5px;
+
+    /* Gør at hele navnet kan ses */
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+
+    font-size: 15px;
+}
 
     .friend {
         text-align: center;
@@ -649,34 +682,32 @@
 
 <section id="friends">
 
-```
-<div class="section-title">
-    <h2>👥 Crew</h2>
-    <p>De mennesker der gør det hele lidt mere kaotisk.</p>
-</div>
-
-<div class="friends">
-
-    <div class="friend">
-        <div class="avatar">AP</div>
-        <strong>APB</strong>
-        <small>Owner</small>
+    <div class="section-title">
+        <h2>👥 Crew</h2>
+        <p>De mennesker der gør det hele lidt mere kaotisk.</p>
     </div>
 
-    <div class="friend">
-        <div class="avatar">NB</div>
-        <strong>Nigga from the blok</strong>
-        <small>Legend</small>
-    </div>
+    <div class="friends">
 
-    <div class="friend">
-        <div class="avatar">KP</div>
-        <strong>Kantstens P...</strong>
-        <small>Legend</small>
-    </div>
+        <div class="friend">
+            <div class="avatar">AP</div>
+            <strong>APB</strong>
+            <small>Owner</small>
+        </div>
 
-</div>
-```
+        <div class="friend">
+            <div class="avatar">NB</div>
+            <strong>Nigga from the blok</strong>
+            <small>Legend</small>
+        </div>
+
+        <div class="friend">
+            <div class="avatar">KP</div>
+            <strong>Kantstens Perker</strong>
+            <small>Legend</small>
+        </div>
+
+    </div>
 
 </section>
 
