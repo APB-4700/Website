@@ -1,1 +1,747 @@
-<p>Nigga er sort 1</p>
+<!DOCTYPE html>
+
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>APB • Home</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        min-height: 100vh;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #fff;
+        background: #07070c;
+        overflow-x: hidden;
+    }
+
+    /* ---------- BACKGROUND ---------- */
+
+    .background {
+        position: fixed;
+        inset: 0;
+        z-index: -10;
+        overflow: hidden;
+        background:
+            radial-gradient(circle at 20% 20%, rgba(109, 40, 217, 0.18), transparent 30%),
+            radial-gradient(circle at 80% 30%, rgba(37, 99, 235, 0.15), transparent 30%),
+            radial-gradient(circle at 50% 90%, rgba(236, 72, 153, 0.10), transparent 35%),
+            #07070c;
+    }
+
+    .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.35;
+        animation: float 12s ease-in-out infinite;
+    }
+
+    .orb.one {
+        width: 300px;
+        height: 300px;
+        background: #7c3aed;
+        top: -100px;
+        left: -80px;
+    }
+
+    .orb.two {
+        width: 350px;
+        height: 350px;
+        background: #2563eb;
+        right: -120px;
+        top: 30%;
+        animation-delay: -4s;
+    }
+
+    .orb.three {
+        width: 280px;
+        height: 280px;
+        background: #db2777;
+        bottom: -120px;
+        left: 35%;
+        animation-delay: -7s;
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translate(0, 0) scale(1);
+        }
+
+        50% {
+            transform: translate(30px, -25px) scale(1.08);
+        }
+    }
+
+    /* ---------- NAVBAR ---------- */
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 18px 7%;
+
+        background: rgba(7, 7, 12, 0.55);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .logo {
+        font-size: 1.35rem;
+        font-weight: 800;
+        letter-spacing: 1px;
+    }
+
+    .logo span {
+        color: #8b5cf6;
+    }
+
+    nav ul {
+        display: flex;
+        gap: 28px;
+        list-style: none;
+    }
+
+    nav a {
+        color: #aaa;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: 0.25s;
+    }
+
+    nav a:hover {
+        color: #fff;
+    }
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+        min-height: 100vh;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+        padding: 120px 20px 80px;
+    }
+
+    .hero-content {
+        max-width: 850px;
+    }
+
+    .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+
+        padding: 8px 15px;
+        margin-bottom: 25px;
+
+        border: 1px solid rgba(139, 92, 246, 0.35);
+        border-radius: 999px;
+
+        background: rgba(139, 92, 246, 0.08);
+        color: #c4b5fd;
+
+        font-size: 0.85rem;
+    }
+
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #4ade80;
+        box-shadow: 0 0 12px #4ade80;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        50% {
+            opacity: 0.5;
+            transform: scale(0.8);
+        }
+    }
+
+    .hero h1 {
+        font-size: clamp(3.5rem, 10vw, 7rem);
+        line-height: 0.95;
+        letter-spacing: -5px;
+        margin-bottom: 25px;
+
+        background: linear-gradient(
+            90deg,
+            #fff,
+            #c4b5fd,
+            #60a5fa,
+            #fff
+        );
+
+        background-size: 250% auto;
+
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+
+        animation: gradient 5s linear infinite;
+    }
+
+    @keyframes gradient {
+        to {
+            background-position: 250% center;
+        }
+    }
+
+    .hero p {
+        color: #999;
+        font-size: 1.15rem;
+        line-height: 1.7;
+        max-width: 600px;
+        margin: auto;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        margin-top: 35px;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 13px 22px;
+        border-radius: 12px;
+
+        text-decoration: none;
+        font-weight: 700;
+        transition: 0.25s;
+
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .btn.primary {
+        color: white;
+        background: linear-gradient(135deg, #7c3aed, #2563eb);
+        box-shadow: 0 10px 30px rgba(99, 102, 241, 0.25);
+    }
+
+    .btn.secondary {
+        color: #ddd;
+        background: rgba(255,255,255,0.05);
+    }
+
+    .btn:hover {
+        transform: translateY(-3px);
+    }
+
+    .btn.primary:hover {
+        box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+    }
+
+    /* ---------- SECTIONS ---------- */
+
+    section {
+        padding: 100px 7%;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+        font-size: 2.3rem;
+        margin-bottom: 10px;
+    }
+
+    .section-title p {
+        color: #777;
+    }
+
+    /* ---------- CARDS ---------- */
+
+    .cards {
+        max-width: 1100px;
+        margin: auto;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .card {
+        position: relative;
+
+        padding: 28px;
+        min-height: 190px;
+
+        border-radius: 20px;
+
+        background: rgba(255,255,255,0.045);
+        border: 1px solid rgba(255,255,255,0.08);
+
+        backdrop-filter: blur(15px);
+
+        transition: 0.3s;
+        overflow: hidden;
+    }
+
+    .card::before {
+        content: "";
+        position: absolute;
+        width: 120px;
+        height: 120px;
+
+        top: -70px;
+        right: -50px;
+
+        background: #7c3aed;
+        filter: blur(60px);
+        opacity: 0.25;
+    }
+
+    .card:hover {
+        transform: translateY(-7px);
+        border-color: rgba(139, 92, 246, 0.35);
+        background: rgba(255,255,255,0.065);
+    }
+
+    .icon {
+        width: 50px;
+        height: 50px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 14px;
+
+        background: rgba(139,92,246,0.12);
+        border: 1px solid rgba(139,92,246,0.2);
+
+        font-size: 1.5rem;
+
+        margin-bottom: 20px;
+    }
+
+    .card h3 {
+        margin-bottom: 9px;
+    }
+
+    .card p {
+        color: #888;
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+
+    .card a {
+        display: inline-block;
+        margin-top: 17px;
+
+        color: #a78bfa;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: bold;
+    }
+
+    /* ---------- FRIENDS ---------- */
+
+    .friends {
+        max-width: 900px;
+        margin: auto;
+
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+    }
+
+    .friend {
+        text-align: center;
+        padding: 25px 10px;
+
+        border-radius: 18px;
+
+        background: rgba(255,255,255,0.035);
+        border: 1px solid rgba(255,255,255,0.07);
+
+        transition: 0.25s;
+    }
+
+    .friend:hover {
+        transform: translateY(-5px);
+        background: rgba(255,255,255,0.06);
+    }
+
+    .avatar {
+        width: 65px;
+        height: 65px;
+
+        margin: 0 auto 12px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
+
+        background: linear-gradient(135deg, #7c3aed, #2563eb);
+
+        font-size: 1.4rem;
+        font-weight: 800;
+
+        box-shadow: 0 0 25px rgba(124,58,237,0.25);
+    }
+
+    .friend strong {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .friend small {
+        color: #666;
+    }
+
+    /* ---------- CLOCK ---------- */
+
+    .clock-box {
+        max-width: 600px;
+        margin: auto;
+
+        padding: 45px 25px;
+
+        text-align: center;
+
+        border-radius: 25px;
+
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+
+        backdrop-filter: blur(20px);
+    }
+
+    #clock {
+        font-size: clamp(3rem, 10vw, 5rem);
+        font-weight: 800;
+        letter-spacing: 4px;
+
+        background: linear-gradient(90deg, #a78bfa, #60a5fa);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    #date {
+        margin-top: 10px;
+        color: #777;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+        padding: 45px 20px;
+        text-align: center;
+
+        border-top: 1px solid rgba(255,255,255,0.06);
+        color: #555;
+    }
+
+    footer span {
+        color: #8b5cf6;
+    }
+
+    /* ---------- MOBILE ---------- */
+
+    @media (max-width: 800px) {
+        nav {
+            padding: 16px 5%;
+        }
+
+        nav ul {
+            gap: 14px;
+        }
+
+        nav a {
+            font-size: 0.8rem;
+        }
+
+        .cards {
+            grid-template-columns: 1fr;
+        }
+
+        .friends {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        section {
+            padding: 75px 5%;
+        }
+
+        .hero h1 {
+            letter-spacing: -3px;
+        }
+    }
+
+    @media (max-width: 500px) {
+        nav ul {
+            display: none;
+        }
+
+        .friends {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .hero p {
+            font-size: 1rem;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- Background -->
+<div class="background">
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
+</div>
+
+<!-- Navigation -->
+<nav>
+    <div class="logo">APB<span>.</span></div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#things">Ting</a></li>
+        <li><a href="#friends">Venner</a></li>
+        <li><a href="#clock-section">Tid</a></li>
+    </ul>
+</nav>
+
+<!-- Hero -->
+<main id="home">
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="status">
+                <span class="status-dot"></span>
+                Serveren er online
+            </div>
+
+            <h1>Velkommen.</h1>
+
+            <p>
+                En lille hjemmeside til os.
+                Ingen business. Ingen bullshit.
+                Bare ting vi synes er fede.
+            </p>
+
+            <div class="buttons">
+                <a href="#things" class="btn primary">
+                    🚀 Gå på opdagelse
+                </a>
+
+                <a href="#friends" class="btn secondary">
+                    👥 Vores crew
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+</main>
+
+<!-- Things -->
+<section id="things">
+
+    <div class="section-title">
+        <h2>🛠️ Vores ting</h2>
+        <p>Links og projekter samlet ét sted.</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">🎮</div>
+
+            <h3>Gaming</h3>
+
+            <p>
+                Alt det vi spiller for tiden.
+                Tilføj selv links til servere,
+                spil eller andet.
+            </p>
+
+            <a href="#">
+                Åbn →
+            </a>
+        </div>
+
+        <div class="card">
+            <div class="icon">💬</div>
+
+            <h3>Discord</h3>
+
+            <p>
+                Vores lille base hvor vi
+                hænger ud, snakker og laver
+                mærkelige ting.
+            </p>
+
+            <!-- Sæt jeres Discord-link ind her -->
+            <a href="#">
+                Discord →
+            </a>
+        </div>
+
+        <div class="card">
+            <div class="icon">💻</div>
+
+            <h3>Projekter</h3>
+
+            <p>
+                Projekter, hjemmesider og
+                andre ting vi finder på.
+            </p>
+
+            <!-- Sæt GitHub-link ind her -->
+            <a href="https://github.com/APB-4700/Website" target="_blank">
+                GitHub →
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Friends -->
+<section id="friends">
+
+    <div class="section-title">
+        <h2>👥 Crew</h2>
+        <p>De mennesker der gør det hele lidt mere kaotisk.</p>
+    </div>
+
+    <div class="friends">
+
+        <!-- Skift navn og initialer -->
+        <div class="friend">
+            <div class="avatar">AP</div>
+            <strong>APB</strong>
+            <small>Owner</small>
+        </div>
+
+        <div class="friend">
+            <div class="avatar">??</div>
+            <strong>Ven 1</strong>
+            <small>Legend</small>
+        </div>
+
+        <div class="friend">
+            <div class="avatar">??</div>
+            <strong>Ven 2</strong>
+            <small>Legend</small>
+        </div>
+
+        <div class="friend">
+            <div class="avatar">??</div>
+            <strong>Ven 3</strong>
+            <small>Legend</small>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Clock -->
+<section id="clock-section">
+
+    <div class="section-title">
+        <h2>🕐 Lige nu</h2>
+        <p>Fordi vi åbenbart også har brug for et ur.</p>
+    </div>
+
+    <div class="clock-box">
+
+        <div id="clock">00:00:00</div>
+
+        <div id="date">
+            Loader...
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Footer -->
+<footer>
+    Lavet med ❤️ og alt for meget tid af <span>APB & vennerne</span>.
+</footer>
+
+<!-- JavaScript -->
+<script>
+
+    function updateClock() {
+
+        const now = new Date();
+
+        const time = now.toLocaleTimeString("da-DK", {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit"
+        });
+
+        const date = now.toLocaleDateString("da-DK", {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        });
+
+        document.getElementById("clock").textContent = time;
+
+        document.getElementById("date").textContent =
+            date.charAt(0).toUpperCase() + date.slice(1);
+    }
+
+    updateClock();
+
+    setInterval(updateClock, 1000);
+
+</script>
+```
+
+</body>
+</html>
