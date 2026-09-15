@@ -2,7 +2,7 @@ const siteConfig = {
     navn: "APB",
     status: "Online",
 
-    om: "Dette er vores private side til os og vores venner.",
+    om: "Lemon Lime & Fresh Mint <br> Strawberry Banana & Red Bull Ice.",
 
     
     links: [
