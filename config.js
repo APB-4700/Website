@@ -2,7 +2,8 @@ const siteConfig = {
     navn: "APB",
     status: "Online",
 
-    om: "Lemon Lime & Fresh Mint <br> Strawberry Banana & Red Bull Ice.",
+    om: "Lemon Lime & Fresh Mint.", 
+        "Strawberry Banana & Red Bull Ice.",
 
     
     links: [
