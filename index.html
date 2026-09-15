@@ -712,62 +712,14 @@
 </section>
 
 
-<!-- Clock -->
-<section id="clock-section">
 
-    <div class="section-title">
-        <h2>🕐 Lige nu</h2>
-        <p>Fordi vi åbenbart også har brug for et ur.</p>
-    </div>
-
-    <div class="clock-box">
-
-        <div id="clock">00:00:00</div>
-
-        <div id="date">
-            Loader...
-        </div>
-
-    </div>
-
-</section>
 
 <!-- Footer -->
 <footer>
-    Lavet med ❤️ og alt for meget tid af <span>APB & vennerne</span>.
+    Lavet med intet kærlighed og alt for meget tid af <span>APB</span>.
 </footer>
 
-<!-- JavaScript -->
-<script>
 
-    function updateClock() {
-
-        const now = new Date();
-
-        const time = now.toLocaleTimeString("da-DK", {
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit"
-        });
-
-        const date = now.toLocaleDateString("da-DK", {
-            weekday: "long",
-            day: "numeric",
-            month: "long",
-            year: "numeric"
-        });
-
-        document.getElementById("clock").textContent = time;
-
-        document.getElementById("date").textContent =
-            date.charAt(0).toUpperCase() + date.slice(1);
-    }
-
-    updateClock();
-
-    setInterval(updateClock, 1000);
-
-</script>
 ```
 
 </body>
